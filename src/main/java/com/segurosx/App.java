@@ -1,13 +1,10 @@
 package com.segurosx;
 
 import com.segurosx.models.*;
-import com.segurosx.models.patterns.PolizaAdapter;
 //import com.segurosx.models.patterns.PolizaAdapter2;
-import com.segurosx.models.patterns.PolizaAdapter2;
+import com.segurosx.models.patterns.VehicularProblemCenter;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * HRCS
@@ -40,6 +37,8 @@ public class App
 //        seguro2.addObserver(cliente);
 //        seguro2.addObserver(asegurado);
 //        seguro2.setSumaAsegurada(34.5);
+
+
         ContratanteMediator me = new ContratanteMediator();
         AgenteMediator agen = new AgenteMediator();
         BeneficiarioMediator ben = new BeneficiarioMediator();
@@ -62,5 +61,23 @@ public class App
         seguro2.setBeneficiarios(b1);
         seguro2.removeObserver(p1);
         seguro2.setSumaAsegurada(34.5);
+
+
+
+        // Demo Problema 4
+        VehicularProblemCenter vehicularProblemCenter = new VehicularProblemCenter();
+        ContratanteMediator me = new ContratanteMediator();
+
+        SeguroVehicular seguro = new SeguroVehicular("Toyota","Yaris", me, vehicularProblemCenter);
+        seguro.setPoliza(new Poliza(122122, "Juan Pablo", "Juan Perez", 12.4));
+        seguro.calcularRiesgo();
+        seguro.calcularCobeturaVehicular();
+
+        vehicularProblemCenter.add(seguro);
+
+        vehicularProblemCenter.setProblem("Accidente", 220.0);
+        vehicularProblemCenter.setProblem("Incidente", 2999.0);
+
+
    }
 }
