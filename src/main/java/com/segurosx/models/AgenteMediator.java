@@ -40,7 +40,6 @@ public class AgenteMediator implements IMediator<Agente>{
     @Override
     public void notify(Seguro seguro,String as) {
         for( IObserver a : seguro.contratantes) {
-            System.out.println("entraagente mediator");
             a.notifica(as);
         }
     }

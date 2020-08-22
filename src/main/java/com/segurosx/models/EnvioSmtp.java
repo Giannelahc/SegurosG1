@@ -58,7 +58,6 @@ public class EnvioSmtp {
         config();
         
         MimeMessage mail = new MimeMessage(session);
-        System.out.println("entra enviosmtp");
         try {
             mail.setFrom(new InternetAddress(user));
             mail.addRecipient(Message.RecipientType.TO, new InternetAddress(correo));

@@ -39,7 +39,6 @@ public class BeneficiarioMediator implements IMediator<Beneficiario>{
     @Override
     public void notify(Seguro seguro,String as) {
         for( IObserver a : seguro.contratantes) {
-            System.out.println("entra beneficiario mediator");
             a.notifica(as);
         }
     }

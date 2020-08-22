@@ -13,8 +13,10 @@ import com.segurosx.models.ContratanteMediator;
 import com.segurosx.models.Persona;
 import com.segurosx.models.Poliza;
 import com.segurosx.models.Seguro;
-import com.segurosx.models.Beneficiario;
+import com.segurosx.models.Contratante;
+import com.segurosx.models.SeguroVehicular;
 import com.segurosx.models.patterns.IObserver;
+import com.segurosx.models.patterns.VehicularProblemCenter;
 import com.segurosx.repository.SeguroRepository;
 import io.javalin.http.Context;
 import java.awt.AWTException;
@@ -31,10 +33,10 @@ public class SegurosControllerImpl implements SegurosController{
 
     private static final String ID = "id";
 
-    private SeguroRepository orderRepository;
+    private SeguroRepository seguroRepository;
 
-    public SegurosControllerImpl(SeguroRepository orderRepository) {
-        this.orderRepository = orderRepository;
+    public SegurosControllerImpl(SeguroRepository seguroRepository) {
+        this.seguroRepository = seguroRepository;
     }
     
     @Override
@@ -47,18 +49,33 @@ public class SegurosControllerImpl implements SegurosController{
 //            ContratanteMediator me = new ContratanteMediator();
 //            AgenteMediator agen = new AgenteMediator();
 //            BeneficiarioMediator ben = new BeneficiarioMediator();
-//            System.out.println("aun no contratante medi");
 //            seguro.setMediator(me);
 //            seguro.getAgente().setMediator(agen);
 //            seguro.getContratante().setMediator(me);
 //            seguro.getBeneficiarios().forEach(b -> {
 //                b.setMediator(ben);
 //            });
-            System.out.println("despes contratante medi");
+
             seguro.addAllObservers();
             //seguro.updateSumaAsegurada(34.5);
             
-            orderRepository.create(seguro);
+            // Demo Problema 4
+        VehicularProblemCenter vehicularProblemCenter = new VehicularProblemCenter();
+        ContratanteMediator me = new ContratanteMediator();
+        Contratante c1 = new Contratante("Giannela","Av.","giannela.huamani@unmsm.edu.pe","7412589",me);
+        SeguroVehicular seguro1 = new SeguroVehicular("Toyota","Yaris", me, vehicularProblemCenter);
+        seguro1.setPoliza(new Poliza(122122, "Juan Pablo", "Juan Perez", 12.4));
+        seguro1.calcularRiesgo();
+        seguro1.calcularCobeturaVehicular();
+        seguro1.addObserver(c1);
+
+        vehicularProblemCenter.add(seguro1);
+
+        vehicularProblemCenter.setProblem("Accidente", 220.0);
+        vehicularProblemCenter.setProblem("Incidente", 2999.0);
+            
+            
+            seguroRepository.create(seguro);
             context.json(seguro);
             
             context.status(HttpStatus.CREATED_201)
