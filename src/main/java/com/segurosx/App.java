@@ -5,6 +5,7 @@ import com.segurosx.models.*;
 import com.segurosx.models.patterns.VehicularProblemCenter;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * HRCS
