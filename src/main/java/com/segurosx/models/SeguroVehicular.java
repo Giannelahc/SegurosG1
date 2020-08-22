@@ -17,6 +17,9 @@ public class SeguroVehicular extends Seguro implements INivelRiesgo {
 
     }
 
+    public SeguroVehicular() {
+    }
+
     @Override
     public void calcularRiesgo() {
 

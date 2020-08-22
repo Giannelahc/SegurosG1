@@ -5,6 +5,8 @@
  */
 package com.segurosx.models;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.segurosx.models.patterns.IMediator;
 import com.segurosx.models.patterns.IObserver;
 
@@ -12,6 +14,7 @@ import com.segurosx.models.patterns.IObserver;
  *
  * @author Giannela HC
  */
+
 public abstract class Persona implements IObserver{
     
     protected String nombre;

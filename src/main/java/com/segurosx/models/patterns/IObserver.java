@@ -2,5 +2,5 @@ package com.segurosx.models.patterns;
 
 public interface IObserver {
 
-    void notifica();
+    void notifica(String as);
 }

@@ -11,6 +11,9 @@ public class SeguroTarjeta extends Seguro implements INivelRiesgo, ICobertura {
         this.bancoTarjeta = bancoTarjeta;
     }
 
+    public SeguroTarjeta() {
+    }
+
     @Override
     public void calcularRiesgo()   {
 

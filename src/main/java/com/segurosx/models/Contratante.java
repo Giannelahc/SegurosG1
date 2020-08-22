@@ -24,13 +24,23 @@ public class Contratante extends Persona{
         this.mediator = mediator;
     }
 
+    public Contratante() {
+        this.mediator= new ContratanteMediator();
+    }
+
     public String getRuc() {
         return ruc;
     }
 
+    public void setMediator(IMediator mediator) {
+        this.mediator = mediator;
+    }
+    public IMediator getMediator() {
+        return mediator;
+    }
     @Override
-    public void notifica() {
-        this.mediator.enviaCorreoSMTP(this);
+    public void notifica(String as) {
+        this.mediator.enviaCorreoSMTP(this,as);
     }
     
     

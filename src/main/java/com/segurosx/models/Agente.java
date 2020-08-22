@@ -24,13 +24,26 @@ public class Agente extends Persona{
         this.mediator = mediator;
     }
 
+    public Agente() {
+        this.mediator =  new AgenteMediator();
+        this.codigo = "A" +String.valueOf(new Random().nextInt());
+    }
+
+    public void setMediator(IMediator mediator) {
+        this.mediator = mediator;
+    }
+
+    public IMediator getMediator() {
+        return mediator;
+    }
+
     public String getCodigo() {
         return codigo;
     }
 
     @Override
-    public void notifica() {
-        this.mediator.enviaCorreoSMTP(this);
+    public void notifica(String as) {
+        this.mediator.enviaCorreoSMTP(this,as);
     }
     
 }

@@ -38,7 +38,7 @@ public class EnvioSmtp {
     
     private void config(){
         user = "giannelahc@gmail.com";//correo gmail sender
-        pass = "";//contra
+        pass = "17200110mirella";//contra
         Properties properties =new Properties();
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.starttls.enable", "true");
@@ -58,7 +58,7 @@ public class EnvioSmtp {
         config();
         
         MimeMessage mail = new MimeMessage(session);
-        
+        System.out.println("entra enviosmtp");
         try {
             mail.setFrom(new InternetAddress(user));
             mail.addRecipient(Message.RecipientType.TO, new InternetAddress(correo));

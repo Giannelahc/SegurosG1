@@ -15,29 +15,33 @@ import com.segurosx.models.patterns.IObserver;
 public class AgenteMediator implements IMediator<Agente>{
     
     private EnvioSmtp sendMail;
+
+    public AgenteMediator() {
+        sendMail = new EnvioSmtp("smtp", this);
+    }
     
 
     @Override
-    public void enviaCorreoSMTP(Agente agente) {
-        sendMail = new EnvioSmtp("smtp", this);
+    public void enviaCorreoSMTP(Agente agente,String as) {
+        //sendMail = new EnvioSmtp("smtp", this);
         // enviando correo...
-        String asunto = "Modificacion de suma asegurada";
         StringBuilder cuerpo = new StringBuilder();
         cuerpo.append(" Mensaje enviado a: ");
+        cuerpo.append(as);
         cuerpo.append("\n  Agente: ");
         cuerpo.append("\n       Código: ");cuerpo.append(agente.getCodigo());
         cuerpo.append("\n       Nombre: ");cuerpo.append(agente.getNombre());
         cuerpo.append("\n       Direccion: ");cuerpo.append(agente.getDireccion());
         cuerpo.append("\n       Correo: ");cuerpo.append(agente.getCorreo());
-        sendMail.preparaMensaje(asunto,cuerpo.toString(),agente.getCorreo());
+        sendMail.preparaMensaje(as,cuerpo.toString(),agente.getCorreo());
         
     }
 
     @Override
-    public void notify(Seguro seguro) {
+    public void notify(Seguro seguro,String as) {
         for( IObserver a : seguro.contratantes) {
-
-            a.notifica();
+            System.out.println("entraagente mediator");
+            a.notifica(as);
         }
     }
 }
