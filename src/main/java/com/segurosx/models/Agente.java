@@ -25,7 +25,7 @@ public class Agente extends Persona{
     }
 
     public Agente() {
-        this.mediator =  new AgenteMediator();
+        this.mediator= new EnvioMediator();
         this.codigo = "A" +String.valueOf(new Random().nextInt());
     }
 

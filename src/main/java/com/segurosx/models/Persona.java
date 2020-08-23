@@ -17,6 +17,8 @@ import com.segurosx.models.patterns.IObserver;
 
 public abstract class Persona implements IObserver{
     
+    protected String ruc;
+    protected String dni;
     protected String nombre;
     protected String direccion;
     protected String correo;
@@ -38,7 +40,15 @@ public abstract class Persona implements IObserver{
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-
+    
+    public String getRuc() {
+        return ruc;
+    }
+    
+    public String getDni() {
+        return dni;
+    }
+    
     public String getCorreo() {
         return correo;
     }

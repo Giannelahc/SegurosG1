@@ -3,18 +3,14 @@ package com.segurosx.models.patterns;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.segurosx.models.Seguro;
-import com.segurosx.models.AgenteMediator;
-import com.segurosx.models.BeneficiarioMediator;
-import com.segurosx.models.ContratanteMediator;
-
+import com.segurosx.models.EnvioMediator;
+//para mostrar context.json (serializar)
 @JsonTypeInfo(
   use = JsonTypeInfo.Id.NAME, 
   include = JsonTypeInfo.As.PROPERTY, 
   property = "type")
 @JsonSubTypes({ 
-  @JsonSubTypes.Type(value = AgenteMediator.class, name = "agente"), 
-  @JsonSubTypes.Type(value = BeneficiarioMediator.class, name = "beneficiario"),
-  @JsonSubTypes.Type(value = ContratanteMediator.class, name = "contratante")
+  @JsonSubTypes.Type(value = EnvioMediator.class, name = "envioMediator")
 })
 public interface IMediator <T>{
 

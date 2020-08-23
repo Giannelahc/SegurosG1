@@ -24,13 +24,9 @@ public class Beneficiario extends Persona{
     }
 
     public Beneficiario() {
-        this.mediator = new BeneficiarioMediator();
+        this.mediator= new EnvioMediator();
     }
 
-    public String getDni() {
-        return dni;
-    }
-    
     public void setMediator(IMediator mediator) {
         this.mediator = mediator;
     }

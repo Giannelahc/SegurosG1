@@ -50,31 +50,31 @@ public class EnvioSmtp {
         protected PasswordAuthentication getPasswordAuthentication(){
             return new PasswordAuthentication(user,pass);
         }
-    });  
+        });  
     }
     
     public void preparaMensaje(String asunto,String cuerpo,String correo)  {
         
-        config();
-        
-        MimeMessage mail = new MimeMessage(session);
-        try {
-            mail.setFrom(new InternetAddress(user));
-            mail.addRecipient(Message.RecipientType.TO, new InternetAddress(correo));
-            mail.setSubject(asunto);
-            mail.setText(cuerpo);
-            
-            try (Transport transport = session.getTransport(this.servidorSmtp)) {
-                transport.connect(user, pass);
-                transport.sendMessage(mail, mail.getRecipients(Message.RecipientType.TO));
-                mediator.success(correo);
-            }
-            
-        } catch (AddressException ex) {
-            Logger.getLogger(EnvioSmtp.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MessagingException ex) {
-            Logger.getLogger(EnvioSmtp.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //config();
+        mediator.success(cuerpo);
+//        MimeMessage mail = new MimeMessage(session);
+//        try {
+//            mail.setFrom(new InternetAddress(user));
+//            mail.addRecipient(Message.RecipientType.TO, new InternetAddress(correo));
+//            mail.setSubject(asunto);
+//            mail.setText(cuerpo);
+//            
+//            try (Transport transport = session.getTransport(this.servidorSmtp)) {
+//                transport.connect(user, pass);
+//                transport.sendMessage(mail, mail.getRecipients(Message.RecipientType.TO));
+//                
+//            }
+//            
+//        } catch (AddressException ex) {
+//            Logger.getLogger(EnvioSmtp.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (MessagingException ex) {
+//            Logger.getLogger(EnvioSmtp.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
     
 }

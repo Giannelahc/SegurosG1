@@ -14,8 +14,6 @@ import java.util.Random;
  */
 public class Contratante extends Persona{
 
-    protected String ruc;
-    
     public Contratante(String nombre, String direccion,String correo,String ruc, IMediator mediator) {
         this.nombre = nombre;
         this.direccion = direccion;
@@ -25,11 +23,7 @@ public class Contratante extends Persona{
     }
 
     public Contratante() {
-        this.mediator= new ContratanteMediator();
-    }
-
-    public String getRuc() {
-        return ruc;
+        this.mediator= new EnvioMediator();
     }
 
     public void setMediator(IMediator mediator) {

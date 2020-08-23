@@ -5,9 +5,7 @@
  */
 package com.segurosx.config;
 
-import com.segurosx.models.AgenteMediator;
-import com.segurosx.models.BeneficiarioMediator;
-import com.segurosx.models.ContratanteMediator;
+import com.segurosx.models.EnvioMediator;
 import com.segurosx.models.patterns.IMediator;
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -29,11 +27,7 @@ public class MediatorConverter {
     public IMediator convert(Document document) {
         IMediator mediator=null;
         switch(document.getString("name")){
-            case "AgenteMediator" : mediator = new AgenteMediator();
-                break;
-            case "BeneficiarioMediator" : mediator = new BeneficiarioMediator();
-                break;
-            case "ContratanteMediator" : mediator = new ContratanteMediator();
+            case "EnvioMediator" : mediator = new EnvioMediator();
                 break;
         }
         return mediator;

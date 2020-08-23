@@ -32,7 +32,7 @@ public class DBConnectionManager {
 //            CodecRegistries.fromProviders(
 //                PojoCodecProvider.builder().automatic(true).build()
 //            )
-            CodecRegistries.fromCodecs(codecMediator,documentCodec,codecSeguro),
+            CodecRegistries.fromCodecs(codecMediator,documentCodec,codecSeguro),//,codecSeguro
             CodecRegistries.fromProviders(
                 PojoCodecProvider.builder().automatic(true).build()
             )

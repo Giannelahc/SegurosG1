@@ -45,7 +45,7 @@ public abstract class Seguro implements ISeguroObservable {
 
     public Seguro() {
         this.certificado = new Certificado();
-        this.contratantes = new ArrayList<>();this.mediator = new ContratanteMediator();
+        this.contratantes = new ArrayList<>();this.mediator = new EnvioMediator();
     }
     
     public Certificado getCertificado() {

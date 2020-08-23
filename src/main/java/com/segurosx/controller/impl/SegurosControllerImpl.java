@@ -7,13 +7,11 @@ package com.segurosx.controller.impl;
 
 import com.segurosx.config.Paths;
 import com.segurosx.controller.SegurosController;
-import com.segurosx.models.AgenteMediator;
-import com.segurosx.models.BeneficiarioMediator;
-import com.segurosx.models.ContratanteMediator;
 import com.segurosx.models.Persona;
 import com.segurosx.models.Poliza;
 import com.segurosx.models.Seguro;
 import com.segurosx.models.Contratante;
+import com.segurosx.models.EnvioMediator;
 import com.segurosx.models.SeguroVehicular;
 import com.segurosx.models.patterns.IObserver;
 import com.segurosx.models.patterns.VehicularProblemCenter;
@@ -61,7 +59,7 @@ public class SegurosControllerImpl implements SegurosController{
             
             // Demo Problema 4
         VehicularProblemCenter vehicularProblemCenter = new VehicularProblemCenter();
-        ContratanteMediator me = new ContratanteMediator();
+        EnvioMediator me = new EnvioMediator();
         Contratante c1 = new Contratante("Giannela","Av.","giannela.huamani@unmsm.edu.pe","7412589",me);
         SeguroVehicular seguro1 = new SeguroVehicular("Toyota","Yaris", me, vehicularProblemCenter);
         seguro1.setPoliza(new Poliza(122122, "Juan Pablo", "Juan Perez", 12.4));
