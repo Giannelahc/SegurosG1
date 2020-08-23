@@ -38,7 +38,7 @@ public class EnvioSmtp {
     
     private void config(){
         user = "giannelahc@gmail.com";//correo gmail sender
-        pass = "17200110mirella";//contra
+        pass = "";//contra
         Properties properties =new Properties();
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.starttls.enable", "true");
