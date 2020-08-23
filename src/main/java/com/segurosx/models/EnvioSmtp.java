@@ -56,7 +56,7 @@ public class EnvioSmtp {
     public void preparaMensaje(String asunto,String cuerpo,String correo)  {
         
         //config();
-        mediator.success(cuerpo);
+        mediator.success(asunto);
 //        MimeMessage mail = new MimeMessage(session);
 //        try {
 //            mail.setFrom(new InternetAddress(user));
